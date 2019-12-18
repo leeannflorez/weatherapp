@@ -1,0 +1,51 @@
+header {
+  background-image:url('../img/hogwarts bg.png');
+  width:100%;
+  height:100vh;
+  background-size:cover;
+  background-position:center center;
+  background-repeat: no-repeat;
+  /*margin:0 auto;*/
+  display:grid;
+  grid-template-rows: repeat(2, 50%);
+  grid-template-columns: 1fr;
+  justify-items:center;
+  align-items:center;
+  grid-gap: 5.5em;
+  position:fixed;
+  top:0;
+  left:0;
+  transition: all .5s;
+}
+
+.logo {
+  grid-row:1;
+  justify-content:center;
+  grid-column: span 1;
+  width:80%;
+  img {
+    width:100%;
+  }
+}
+
+
+.homeBtn {
+    grid-row:2;
+}
+
+.homeBtn button {
+  border: #DDCDBD solid 3px;
+  border-radius: 25px;
+  background-color: transparent;
+  padding: 20px;
+  width: 15rem;
+  font-family: 'Philosopher', sans-serif;
+  color: #DDCDBD;
+  font-size: 2.5rem;
+}
+
+
+.anim {
+  transform: translateY(-100%);
+  opacity:0;
+}

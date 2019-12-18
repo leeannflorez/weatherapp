@@ -34,10 +34,10 @@ $.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
 	// Another way to remove the header is to provide a button and the event
 	// to trigger what happens when the button is clicked (uncomment to use)
 
-	 $('header').append('<a class="button" href="#">Click</a>');
-	 $('header .button').click(function(){
-		$('header').addClass('anim');
-	// });
+	 // $('header').append('<a class="button" href="#">Click</a>');
+	 $('header button').click(function(){
+	 $('header').addClass('anim');
+	 });
 
 	// The following line calls a function to display
 	// the main weather information. DO NOT EDIT THIS LINE.
@@ -79,7 +79,10 @@ function displayData(forecast){
 	// (referenced by the number 0) is written as HTML inside the <div class="today"> element
 	// If I want to round this number up, I would modify the code like this
 
-	// $('.today').html(Math.round(forecast.daily.data[0].temperatureHigh));
+	$('.currentTemp').html(Math.round(forecast.daily.data[0].temperatureHigh));
+	$('.nextday1 h4').html(Math.round(forecast.daily.data[1].temperatureHigh));
+	$('.nextday2 h4').html(Math.round(forecast.daily.data[2].temperatureHigh));
+	$('.nextday3 h4').html(Math.round(forecast.daily.data[3].temperatureHigh));
 
 	// If I want to display the same information for tomorrow, change the 0 to 1
 
@@ -94,7 +97,7 @@ function displayData(forecast){
 	// I can access the "icon" property. This returns a value that can be used
 	// as a CSS class name that you can create with your style details
 
-	// $('.today').addClass(forecast.daily.data[0].icon);
+	$('main').addClass(forecast.daily.data[0].icon);
 
 	// Note – the value of "icon" above needs to be checked in the inspect
 	// panel. It may say "rain". If this is the case, you could create a rule
@@ -130,13 +133,13 @@ function displayDay(n){
 	var d = new Date();
 	var weekday = new Array();
 
-	weekday[0] = "S";
-	weekday[1] = "M";
-	weekday[2] = "T";
-	weekday[3] = "W";
-	weekday[4] = "T";
-	weekday[5] = "F";
-	weekday[6] = "S";
+	weekday[0] = "SUN";
+	weekday[1] = "MON";
+	weekday[2] = "TUE";
+	weekday[3] = "WED";
+	weekday[4] = "THU";
+	weekday[5] = "FRI";
+	weekday[6] = "SAT";
 
 	var dispDay = d.getDay() + n;
 
@@ -171,3 +174,24 @@ function timeConverter(UNIX_timestamp){
   return time;
 }
 
+
+/* -----------------------------------------------
+	Author's JS Inputs
+   ----------------------------------------------- */
+// // add your image URLs here
+// var arr = ['../img/logo_black.svg','../img/logo_yellow.svg','../img/logo_red.svg','../img/logo_blue.svg','../img/logo_green.svg'];
+
+// function getRandom(){
+//   // get random number based on length of array
+//   var rand = Math.floor(Math.random() * arr.length);
+//   // insert the random image url into the "src" attribute
+//   $('div img').attr('src', arr[rand] );
+// }
+// // call function to display a random term when the page loads
+// getRandom();
+
+
+
+// $('.homeBtn button').click(function(){
+//   $('header').addClass('hide');
+// })
