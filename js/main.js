@@ -79,10 +79,43 @@ function displayData(forecast){
 	// (referenced by the number 0) is written as HTML inside the <div class="today"> element
 	// If I want to round this number up, I would modify the code like this
 
-	$('.currentTemp').html(Math.round(forecast.daily.data[0].temperatureHigh));
+	$('.currentTemp').html(Math.round(forecast.currently.temperature));
+	
 	$('.nextday1 h4').html(Math.round(forecast.daily.data[1].temperatureHigh));
 	$('.nextday2 h4').html(Math.round(forecast.daily.data[2].temperatureHigh));
 	$('.nextday3 h4').html(Math.round(forecast.daily.data[3].temperatureHigh));
+	$('.nextday4 h4').html(Math.round(forecast.daily.data[4].temperatureHigh));
+	$('.nextday5 h4').html(Math.round(forecast.daily.data[5].temperatureHigh));
+	$('.nextday6 h4').html(Math.round(forecast.daily.data[6].temperatureHigh));
+
+	$('.nextday1 p').html(getTime(forecast.daily.data[2].time));
+	$('.nextday2 p').html(getTime(forecast.daily.data[3].time));
+	$('.nextday3 p').html(getTime(forecast.daily.data[4].time));
+	$('.nextday4 p').html(getTime(forecast.daily.data[5].time));
+	$('.nextday5 p').html(getTime(forecast.daily.data[6].time));
+	$('.nextday6 p').html(getTime(forecast.daily.data[7].time));
+
+	$('.date').html(getTime(forecast.currently.time));
+
+	$('.sunrise p').html(timeConverter(forecast.daily.data[0].sunriseTime));
+	$('.sunset p').html(timeConverter(forecast.daily.data[0].sunsetTime));
+
+
+	$('.moon span').html(displayMoon(forecast.daily.data[0].moonPhase));
+	$('.moon p').html(displayMoonText(forecast.daily.data[0].moonPhase));
+
+	// $('main .menuBtn').click(function(){
+	// $('section').addClass('anim');
+	//  }
+
+	$('.aboutPage').click(function(){
+  		$(this).toggle();
+	});
+
+	$('.menubtn button').click(function(){
+  		$('.aboutPage').toggle();
+	});
+
 
 	// If I want to display the same information for tomorrow, change the 0 to 1
 
@@ -109,6 +142,31 @@ function displayData(forecast){
 	// "thunderstorm" and "tornado"
 
 }
+
+function displayMoon(n){
+   if( n > 0 && n < .25 ){
+     return '<img src="img/icons/new.svg" alt="new moon">';
+   } else if( n >= .25 && n < .50 ) {
+     return '<img src="img/icons/first-quarter.svg" alt="first quarter moon">';
+   } else if( n >= .5 && n < .75 ) {
+     return '<img src="img/icons/full.svg" alt="full moon">';
+   } else {
+     return '<img src="img/icons/third-quarter.svg" alt="third quater moon">'; 
+   }
+}
+
+function displayMoonText(n){
+   if( n > 0 && n < .25 ){
+     return 'new';
+   } else if( n >= .25 && n < .50 ) {
+     return '1st quarter';
+   } else if( n >= .5 && n < .75 ) {
+     return 'full';
+   } else {
+     return '3rd quarter'; 
+   }
+}
+
 
 
 /* -----------------------------------------------
@@ -156,24 +214,93 @@ function displayDay(n){
 
 
 /* -----------------------------------------------
-   Function for converting timestampt to readable text
+   Function for converting timestamp to readable text
    Source: https://stackoverflow.com/a/6078873
    ----------------------------------------------- */
 
-function timeConverter(UNIX_timestamp){
+function getTime(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
   var year = a.getFullYear();
   var month = months[a.getMonth()];
   var date = a.getDate();
   var hour = a.getHours();
   var min = a.getMinutes();
   var sec = a.getSeconds();
-  //var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-  var time = hour + ':' + min ;
+  var time = month + "&nbsp;" + date;
   return time;
 }
 
+// function getMorning(UNIX_timestamp){
+//   var a = new Date(UNIX_timestamp * 1000);
+//   // var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+//   // var year = a.getFullYear();
+//   // var month = months[a.getMonth()];
+//   // var date = a.getDate();
+//   var hour = ((a.getHours() + 24) % 12 || 24) +5;
+//   var min = a.getMinutes();
+//   var sec = a.getSeconds();
+//   // return hour + ":" + min;
+
+//   if(min < 10){
+//   	min =  min + "0";
+//   }
+//   return hour + ":" + min;
+
+// }
+
+// function getEvening(UNIX_timestamp){
+//   var a = new Date(UNIX_timestamp * 1000);
+//   // var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+//   // var year = a.getFullYear();
+//   // var month = months[a.getMonth()];
+//   // var date = a.getDate();
+//   var hour = (((a.getHours() + 24) % 12 || 24) - 13) * -1;
+//   var min = a.getMinutes();
+//   var sec = a.getSeconds();
+//   // return hour + ":" + min;
+
+//   if(min < 10){
+//   	min =  min + "0";
+//   }
+//   return hour + ":" + min;
+
+// }
+
+
+function timeConverter(UNIX_timestamp){
+
+  // set up new date object
+  var a = new Date(UNIX_timestamp * 1000);
+
+  // convert date/time to simplified format
+  var time = a.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+  // for time minus AM/PM
+  if(time.includes(" AM")){
+    // remove AM
+    var convertedTime = time.replace(" AM", "");
+  } else {
+    // remove PM
+    var convertedTime = time.replace(" PM", "");
+  }
+
+  // use the following line for time minus AM/PM
+  return convertedTime;
+
+  // use the following line for time with AM/PM
+ //  return time;
+
+}
+
+
+
+// function ShowInfo {
+
+// 	$('main .menuBtn').click(function(){
+// 	$('#aboutPage').addClass('anim');
+// 	 });
+// }
 
 /* -----------------------------------------------
 	Author's JS Inputs
@@ -192,6 +319,21 @@ function timeConverter(UNIX_timestamp){
 
 
 
-// $('.homeBtn button').click(function(){
-//   $('header').addClass('hide');
-// })
+
+// sample array
+var arr =['<img src="img/logo_black.svg">','<img src="img/logo_yellow.svg">','<img src="img/logo_red.svg">','<img src="img/logo_blue.svg">','<img src="img/logo_green.svg">'];
+
+function getRandom(){
+  // get random number based on length of array
+  var rand = Math.floor(Math.random() * arr.length);
+  // display random value
+  $('.logo').html( arr[rand] );
+}
+
+// call function to display a random term when the page loads
+getRandom();
+
+/* change the random term each time the .randomize link is clicked */
+ $('header').click(function(){
+   getRandom();
+ })
