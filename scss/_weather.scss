@@ -81,17 +81,19 @@ main {
       }
     }
 
-    .next3days{
-      grid-row:10;
-      grid-column:1 / span 3;
-      display:grid;
-      justify-self:center;
-      justify-content: space-between;
-      overflow-x:auto;
-      width:100%;
-    }
+    // .next3days{
+    //   grid-row:10;
+    //   grid-column:1 / span 3;
+    //   display:grid;
+    //   justify-self:center;
+    //   justify-content: space-between;
+    //   overflow-x:auto;
+    //   width:100%;
+    // }
 
     .nextday1 {
+      grid-row:10;
+      grid-column:2;
       color: #CDC3C5;
       text-align:center;
 
@@ -103,6 +105,8 @@ main {
     }
 
     .nextday2 {
+      grid-row:10;
+      grid-column:3 / span 2;
       color: #CDC3C5;
       text-align:center;
 
@@ -114,6 +118,8 @@ main {
     }
 
     .nextday3 {
+      grid-row:10;
+      grid-column:5;
       color: #CDC3C5;
       text-align:center;
 
@@ -124,43 +130,47 @@ main {
       }
     }
 
-        .nextday4 {
-      color: #CDC3C5;
-      text-align:center;
+    //     .nextday4 {
+    //   color: #CDC3C5;
+    //   text-align:center;
 
-        h4 {
-        font-size:3.5rem;
-        margin-top:-20px;
-        font-weight:300;
-      }
-    }
+    //     h4 {
+    //     font-size:3.5rem;
+    //     margin-top:-20px;
+    //     font-weight:300;
+    //   }
+    // }
 
-        .nextday5 {
-      color: #CDC3C5;
-      text-align:center;
+    //     .nextday5 {
+    //   color: #CDC3C5;
+    //   text-align:center;
 
-        h4 {
-        font-size:3.5rem;
-        margin-top:-20px;
-        font-weight:300;
-      }
-    }
+    //     h4 {
+    //     font-size:3.5rem;
+    //     margin-top:-20px;
+    //     font-weight:300;
+    //   }
+    // }
 
-        .nextday6 {
-      color: #CDC3C5;
-      text-align:center;
+    //     .nextday6 {
+    //   color: #CDC3C5;
+    //   text-align:center;
 
-        h4 {
-        font-size:3.5rem;
-        margin-top:-20px;
-        font-weight:300;
-      }
-    }
+    //     h4 {
+    //     font-size:3.5rem;
+    //     margin-top:-20px;
+    //     font-weight:300;
+    //   }
+    // }
 
     .rightarrow {
-      grid-row:10;
+      grid-row:9 / span 2;
       grid-column:6;
-      justify-self:end;
+      fill:#CDC3C5;
+
+      svg {
+        height:2em;
+      }
     }
 
 
