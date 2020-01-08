@@ -95,7 +95,7 @@ function displayData(forecast){
 	$('.nextday5 p').html(getTime(forecast.daily.data[6].time));
 	$('.nextday6 p').html(getTime(forecast.daily.data[7].time));
 
-	$('.date').html(getTime(forecast.currently.time));
+	$('.date p').html(getTime(forecast.currently.time));
 
 	$('.sunrise p').html(timeConverter(forecast.daily.data[0].sunriseTime));
 	$('.sunset p').html(timeConverter(forecast.daily.data[0].sunsetTime));
@@ -108,9 +108,9 @@ function displayData(forecast){
 	// $('section').addClass('anim');
 	//  }
 
-	$('.aboutPage').click(function(){
-  		$(this).toggle();
-	});
+	// $('.aboutPage').click(function(){
+ //  		$(this).toggle();
+	// });
 
 	$('.menubtn button').click(function(){
   		$('.aboutPage').toggle();

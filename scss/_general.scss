@@ -68,3 +68,49 @@ a {
 	background-image:url('../img/bg_tornado.svg');
 
 }
+
+
+// tablet view
+@media only screen and (min-width: 551px) {
+  .logo {
+  	width:450px;
+  	img {
+  		object-fit:contain;
+  		object-position:center;
+  		width:450px;
+  		height:200px;
+  	}
+  }
+  .date {
+  	margin-top:80px;
+  	font-size:3rem;
+  }
+
+  .menubtn {
+  		margin-right:100px;
+  button {
+  	  width: 80px;
+      height: 80px;
+  }
+}
+
+}
+
+// desktop view
+
+@media only screen and (min-width: 1000px) {
+  .logo {
+  	width:500px;
+  	img {
+  		object-fit:contain;
+  		object-position:center;
+  		width:500px;
+  		height:300px;
+  	}
+  }
+
+  .date {
+  	margin-top:60px;
+  	font-size:30rem
+  }
+}

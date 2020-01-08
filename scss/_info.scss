@@ -28,7 +28,6 @@
       display:grid;
       grid-row: 1;
       grid-column: 6;
-      width:40px;
       justify-self:end;
       margin-right:2em;
       align-self:end;
@@ -40,7 +39,8 @@
       width: 50px;
       height: 50px;
       background-image: url('../img/hallows_inverse.svg');
-      background-color: rbga(0,0,0,0); 
+      background-color: rbga(0,0,0,0);
+      background-size:cover; 
       border-radius:50%;
       border: 0px;
 
