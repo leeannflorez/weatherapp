@@ -20,6 +20,7 @@ main {
       align-self: center;
       padding-top: 20px;
       font-family: 'Open Sans', sans-serif;
+      text-shadow: 2px 2px #312a22;
   	}
 
   	.currentTemp {
@@ -28,6 +29,7 @@ main {
       font-family: 'Philosopher', sans-serif;
       font-size: 6rem;
       color: #EAA73A;
+      text-shadow: 2px 2px #312a22;
   	}
 
   	.infoBox {
@@ -87,19 +89,17 @@ main {
       grid-template-columns: repeat(8,1fr);
       overflow-x: scroll;
       width: 100%;
-      margin: auto;
       scrollbar-color: #FFECB3 #FFC107;
       grid-column: 1 / span 6;
-      grid-row:9;
-      grid-gap:10%;
+      grid-row: 9;
+      grid-gap: 10%;
+      margin-top:100px;
 
     .nextday1 {
-      // grid-row:10;
-      // grid-column:2;
       color: #CDC3C5;
       text-align:center;
       display:inline-block;
-      padding-left:20%;
+      margin-left:20%;
 
       h4 {
         font-size:3.5rem;
@@ -109,8 +109,6 @@ main {
     }
 
     .nextday2 {
-      // grid-row:10;
-      // grid-column:3 / span 2;
       color: #CDC3C5;
       text-align:center;
       display:inline-block;
@@ -123,8 +121,6 @@ main {
     }
 
     .nextday3 {
-      // grid-row:10;
-      // grid-column:5;
       color: #CDC3C5;
       text-align:center;
       display:inline-block;

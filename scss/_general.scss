@@ -69,11 +69,21 @@ a {
 
 }
 
+.anim {
+  transform: translateY(-100%);
+  opacity:0;
+}
+
+// .anim2 {
+//   transform: translateX(0%);
+// }
+
 
 // tablet view
-@media only screen and (min-width: 551px) {
+@media only screen and (min-width: 40em) {
   .logo {
   	width:450px;
+
   	img {
   		object-fit:contain;
   		object-position:center;
@@ -81,9 +91,11 @@ a {
   		height:200px;
   	}
   }
+
   .date {
   	margin-top:80px;
   	font-size:3rem;
+     text-shadow: 2px 2px #fff;
   }
 
   .menubtn {
@@ -98,7 +110,7 @@ a {
 
 // desktop view
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 60em) {
   .logo {
   	width:500px;
   	img {
@@ -110,7 +122,137 @@ a {
   }
 
   .date {
-  	margin-top:60px;
-  	font-size:30rem
+  	margin-top:40px;
+  	font-size:30rem;
   }
+
+  .next3days {
+    background-color: rgba(255,255,255,.5);
+    width:50%;
+    overflow-x:none;
+    grid-gap:0;
+    grid-column: 1 / span 6;
+      }
+
+  .nextday1 {
+    padding-left: 50%;
+    grid-column: 2;
+    justify-self:center;
+  }
+
+    .nextday2 {
+      grid-column: 3;
+      justify-self:center;
+    }
+
+    .nextday3 {
+      grid-column:4;
+      justify-self:center;
+    }
+
+    .nextday4 {
+      grid-column:5;
+      justify-self:center;
+    }
+
+    .nextday5 {
+      grid-column:6;
+      justify-self:center;
+    }
+
+    .nextday6 {
+      grid-column: 7;
+      justify-self:center;
+    }
+
+  .nextday1 p,
+  .nextday2 p,
+  .nextday3 p,
+  .nextday4 p,
+  .nextday5 p,
+  .nextday6 p,
+  .nextday1 h4,
+  .nextday2 h4,
+  .nextday3 h4,
+  .nextday4 h4,
+  .nextday5 h4,
+  .nextday6 h4, {
+    color:#312a22;
+  }
+
+  .leftarrow, .rightarrow{
+    display:none;
+  }
+
+  main .infobox .moon h4 {margin-top:2em;}
+
+  .aboutBox {
+    grid-row: 1 / span 5;
+    grid-column: 2 / span 3;
+    text-align:center;
+    align-self:center;
+    font-size:1.5rem;
+  }
+
+
+  .clear-day {
+  background-image:url('../img/bg_clear sky large.svg');
+}
+
+.clear-night {
+  background-image:url('../img/bg_clear sky large.svg');
+}
+
+.rain {
+  background-image:url('../img/bg_rain large.svg');
+}
+
+.snow {
+  background-image:url('../img/bg_snow large.svg');
+}
+
+.sleet {
+  background-image:url('../img/bg_hail-sleet large.svg');
+
+}
+
+.wind {
+  background-image:url('../img/bg_wind large.svg');
+
+}
+
+.fog {
+  background-image:url('../img/bg_fog large.svg');
+
+}
+
+.cloudy {
+  background-image:url('../img/bg_cloudy large.svg');
+
+}
+
+.partly-cloudy-day {
+  background-image:url('../img/bg_partly cloudy large.svg');
+
+}
+
+.partly-cloudy-night {
+  background-image:url('../img/bg_partly cloudy large.svg');
+
+}
+
+.hail {
+  background-image:url('../img/bg_hail-sleet large.svg');
+
+}
+
+.thunderstorm {
+  background-image:url('../img/bg_thunderstorm large.svg');
+
+}
+
+.tornado {
+  background-image:url('../img/bg_tornado large.svg');
+
+}
 }
